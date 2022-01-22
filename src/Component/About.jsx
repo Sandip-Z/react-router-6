@@ -1,5 +1,7 @@
-const About = () => {
-    return <p>This is About</p>
-}
+import PrivateRoute from "./withPrivateRoute";
 
-export default About
+const About = () => {
+  return <p>This is About</p>;
+};
+
+export default PrivateRoute(About);

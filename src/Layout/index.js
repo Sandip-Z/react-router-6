@@ -1,10 +1,9 @@
-import {Link, Outlet} from 'react-router-dom'
-import {useEffect} from 'react';
+import { useContext } from "react";
+import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../Component/AuthProvider";
 
-const Layout = (props) => {
-    useEffect(() => {
-        console.log("I was mounted");
-    }, [])
+const Layout = () => {
+  const { removeToken } = useContext(AuthContext).value;
   return (
     <div className="layout--wrapper">
       <aside>
@@ -16,12 +15,13 @@ const Layout = (props) => {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <button onClick={removeToken}>logout</button>
           </li>
         </ul>
       </aside>
-      <main>{props.children}</main>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };

@@ -1,5 +1,7 @@
-const Home = () => {
-    return <p>This is home</p>
-}
+import PrivateRoute from "./withPrivateRoute";
 
-export default Home
+const Home = () => {
+  return <p>This is home</p>;
+};
+
+export default PrivateRoute(Home)
